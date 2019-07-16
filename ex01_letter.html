@@ -1,0 +1,61 @@
+<html>
+<head>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<style>
+ #target {
+ 		border: 1px solid blue;
+		 }
+ 
+ .letter {
+ 	padding: 20px;
+ 	margin: 10px;
+ 	background-color: #FFDE00;
+	color: #333;
+	display: inline-block;
+	font-family: monospace;
+	font-size: 32px;
+	text-align: center;
+		 }
+</style>
+</head>
+
+<body>
+
+	<h1>컴포넌트 스타일링 - 1</h1>
+	<div id="target"></div>
+	
+<script type="text/babel">
+
+		var target = document.querySelector('#target');
+		// class Letter extends React.Component {
+		// 	render() {
+		// 		return (
+		// 		<h1>{this.props.children}</h1>
+		// 		)
+		// 	}
+		// }
+
+		class Letter extends React.Component {
+			render() {
+				return (
+				<h1 className='letter'>{this.props.children}</h1>
+				)
+			}
+		}
+ 	
+	 ReactDOM.render(
+		<div>
+			<Letter>A</Letter>
+			<Letter>E</Letter>
+			<Letter>I</Letter>
+			<Letter>O</Letter>
+			<Letter>U</Letter>
+		</div>,
+		target
+ 	);
+
+</script>
+</body>
+</html>

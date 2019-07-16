@@ -1,0 +1,86 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>리액트 테스트</h1>
+    
+    <div id="target"></div>
+
+    <script type="text/babel">
+
+        var target = document.querySelector('#target');
+    
+        class Square extends React.Component {
+           render() {
+               var squareStyle = {
+                   height: 150,
+                   backgroundColor: this.props.color
+               };
+
+               return (
+                   <div style={squareStyle}>
+                   </div>
+               );
+           }
+        }
+
+       class Label extends React.Component {
+           render() {
+               var labelStyle = {
+                   fontFamily: "sans-serif",
+                   fontWeight: "bold",
+                   padding: 13,
+                   margin: 0
+               };
+
+               return (
+                   <div style={labelStyle}>{this.props.color}</div>
+               );
+           }
+       }
+
+
+       class Card extends React.Component {
+           render() {
+               var cardStyle = {
+                   height: 200,
+                   width: 150,
+                   padding: 0,
+                   backgroundColor : '#FFF',
+                   boxShadow: '0px 0px 5px #666'
+               };
+
+               return (
+                    <div style={cardStyle}>
+                       <Square color={this.props.color}/>
+                       <Label color={this.props.color}/>
+                    </div>
+               );
+           }
+       }
+
+        ReactDOM.render(
+            <div>
+                <Card color="#FF6663"/>
+                <Card color="#FFA737"/>
+
+            </div>,
+            target
+        )
+
+    </script>
+
+</body>
+
+</html>
