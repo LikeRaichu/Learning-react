@@ -1,0 +1,61 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+<script type="text/babel">
+    // var renderData = [
+    //     <Circle bgColor={'blue'} />
+    //     <Circle bgColor={'red'} />
+    //     <Circle bgColor={'pink'} />
+    // ]
+
+    class Circle extends React.Component {
+        render() {
+            var circleStyle = {
+                padding: "10px",
+                margin: "20px",
+                display: "inline-block",
+                backgroundColor: this.props.bgColor,
+                borderRadius: "50%",
+                width: "100px",
+                height: "100px"
+            }
+
+            return (
+                <div style={circleStyle}></div>
+                )
+        }
+    }
+
+    function showColor() {
+        var colors = ['#F1325A', '#AF123F', '#F872FF', '#A15231']
+        var ran = Math.floor(Math.random() * colors.length);
+
+        return <Circle bgColor={colors[ran]} />;
+    }
+
+    ReactDOM.render(
+        <div>
+            {showColor()}        
+            {showColor()}
+            {showColor()}
+
+            <Circle bgColor = "tomato"/>
+            <Circle bgColor = "orange"/>
+        </div>,
+        document.body
+    )
+
+</script>
+</body>
+
+</html>
